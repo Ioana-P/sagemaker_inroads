@@ -19,7 +19,10 @@ def model_fn(model_dir):
     print("Loading model.")
     
     # load using joblib
-    model = joblib.load(os.path.join(model_dir, "kmeans_cluster.joblib"))
+    # you might wanna change the name of the model here if you want it 
+    # to be more easily identifiable in the console
+    # however if you only plan on having one model there, it should be fine as is
+    model = joblib.load(os.path.join(model_dir, "model.joblib"))
     print("Done loading model.")
     
     return model
@@ -54,7 +57,7 @@ if __name__ == '__main__':
 
     ## TODO: Define a model 
     model = KMeans(
-            n_estimators=args.n_clusters,
+            n_clusters=args.n_clusters,
             )
     
     
